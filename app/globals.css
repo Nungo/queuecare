@@ -1,0 +1,361 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* QueueCare Custom Variables */
+:root {
+  --sa-green: #00A651;
+  --sa-gold: #FFB81C;
+  --sa-blue: #002395;
+  --sa-red: #DE3831;
+}
+
+/* ========================================== TAILWIND STYLES */
+@layer base {
+  /* Remove scrollbar */
+  .remove-scrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    border-radius: 0px;
+  }
+  .remove-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .remove-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 0px;
+  }
+  .remove-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  /* ===== UTILITIES */
+  .sidebar {
+    @apply remove-scrollbar w-full max-w-72 flex-col overflow-auto bg-black-800 px-7 py-10;
+  }
+  .left-sidebar {
+    @apply hidden lg:flex;
+  }
+  .right-sidebar {
+    @apply hidden xl:flex;
+  }
+  .clip-text {
+    @apply bg-clip-text text-transparent;
+  }
+  .bg-image {
+    @apply bg-black-900 bg-light-rays bg-cover bg-no-repeat;
+  }
+  .header {
+    @apply text-32-bold md:text-36-bold;
+  }
+  .sub-header {
+    @apply text-18-bold md:text-24-bold;
+  }
+  .container {
+    @apply relative flex-1 overflow-y-auto px-[5%];
+  }
+  .sub-container {
+    @apply mx-auto flex size-full flex-col py-10;
+  }
+  .side-img {
+    @apply hidden h-full object-cover md:block;
+  }
+  .copyright {
+    @apply text-14-regular justify-items-end text-center text-dark-600 xl:text-left;
+  }
+
+  /* QueueCare Buttons with SA Colors */
+  .qc-btn-primary {
+    @apply bg-sa-green text-white hover:bg-sa-green/90 transition-colors;
+  }
+  .qc-btn-secondary {
+    @apply bg-sa-gold text-black hover:bg-sa-gold/90 transition-colors;
+  }
+  .qc-btn-danger {
+    @apply bg-sa-red text-white hover:bg-sa-red/90 transition-colors;
+  }
+
+  /* ==== SUCCESS */
+  .success-img {
+    @apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
+  }
+  .request-details {
+    @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
+  }
+
+  /* ===== ADMIN */
+  .admin-header {
+    @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
+  }
+  .admin-main {
+    @apply flex flex-col items-center space-y-6 px-[5%] pb-12 xl:space-y-12 xl:px-12;
+  }
+  .admin-stat {
+    @apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
+  }
+
+  /* ==== FORM */
+.radio-group {
+  @apply flex h-full flex-1 items-center gap-2 rounded-md border border-gray-300 bg-white p-3 hover:bg-gray-50;
+}
+/* Radio button improvements */
+.radio-group input[type="radio"] {
+  @apply w-4 h-4 text-sa-green bg-white border-gray-300 focus:ring-sa-green focus:ring-2;
+}
+
+.radio-group label {
+  @apply text-gray-900 font-medium cursor-pointer;
+}
+
+.radio-group:hover {
+  @apply border-sa-green/50;
+}
+
+/* Ensure radio buttons are visible and clickable */
+[role="radiogroup"] > div {
+  @apply bg-white border border-gray-300 rounded-md p-3 hover:border-sa-green/50 cursor-pointer;
+}
+
+[role="radiogroup"] > div[data-state="checked"] {
+  @apply border-sa-green bg-sa-green/5;
+}
+  .checkbox-label {
+    @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+  }
+
+  /* ==== File Upload */
+  .file-upload {
+    @apply text-12-regular flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
+  }
+  .file-upload_label {
+    @apply flex flex-col justify-center gap-2 text-center text-dark-600;
+  }
+
+  /* ==== Stat Card */
+  .stat-card {
+    @apply flex flex-1 flex-col gap-6 rounded-2xl bg-cover p-6 shadow-lg;
+  }
+
+  /* ==== Status Badge */
+  .status-badge {
+    @apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
+  }
+
+  /* Data Table */
+  .data-table {
+    @apply z-10 w-full overflow-hidden rounded-lg border border-dark-400 shadow-lg;
+  }
+  .table-actions {
+    @apply flex w-full items-center justify-between space-x-2 p-4;
+  }
+
+  /* ===== ALIGNMENTS */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  /* ===== TYPOGRAPHY */
+  .text-36-bold {
+    @apply text-[36px] leading-[40px] font-bold;
+  }
+  .text-24-bold {
+    @apply text-[24px] leading-[28px] font-bold;
+  }
+  .text-32-bold {
+    @apply text-[32px] leading-[36px] font-bold;
+  }
+  .text-18-bold {
+    @apply text-[18px] leading-[24px] font-bold;
+  }
+  .text-16-semibold {
+    @apply text-[16px] leading-[20px] font-semibold;
+  }
+  .text-16-regular {
+    @apply text-[16px] leading-[20px] font-normal;
+  }
+  .text-14-medium {
+    @apply text-[14px] leading-[18px] font-medium;
+  }
+  .text-14-regular {
+    @apply text-[14px] leading-[18px] font-normal;
+  }
+  .text-12-regular {
+    @apply text-[12px] leading-[16px] font-normal;
+  }
+  .text-12-semibold {
+    @apply text-[12px] leading-[16px] font-semibold;
+  }
+
+  /* ===== SHADCN OVERRIDES WITH SA COLORS - WHITE INPUTS */
+  .shad-primary-btn {
+    @apply bg-sa-green text-white hover:bg-sa-green/90 !important;
+  }
+  .shad-danger-btn {
+    @apply bg-sa-red text-white hover:bg-sa-red/90 !important;
+  }
+  .shad-gray-btn {
+    @apply border border-gray-300 cursor-pointer bg-white text-gray-900 hover:bg-gray-50 !important;
+  }
+  .shad-input-label {
+    @apply text-14-medium text-gray-700 !important;
+  }
+  .shad-input {
+    @apply bg-white placeholder:text-gray-500 border-gray-300 text-gray-900 h-11 focus-visible:ring-2 focus-visible:ring-sa-green focus-visible:border-sa-green !important;
+  }
+  .shad-input-icon {
+    @apply bg-white placeholder:text-gray-500 border-gray-300 text-gray-900 h-11 focus-visible:ring-2 focus-visible:ring-sa-green focus-visible:border-sa-green !important;
+  }
+  .shad-textArea {
+    @apply bg-white placeholder:text-gray-500 border-gray-300 text-gray-900 focus-visible:ring-2 focus-visible:ring-sa-green focus-visible:border-sa-green !important;
+  }
+  .shad-combobox-item {
+    @apply data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 !important;
+  }
+  .shad-combobox-trigger {
+    @apply h-11 bg-white border-gray-300 text-gray-900 focus:ring-2 focus:ring-sa-green focus:border-sa-green !important;
+  }
+  .shad-select-trigger {
+    @apply bg-white placeholder:text-gray-500 border-gray-300 text-gray-900 h-11 focus:ring-2 focus:ring-sa-green focus:border-sa-green !important;
+  }
+  .shad-select-content {
+    @apply bg-white border-gray-300 !important;
+  }
+  .shad-dialog {
+    @apply bg-white border-gray-300 !important;
+  }
+  .shad-dialog button {
+    @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+  }
+  .shad-error {
+    @apply text-sa-red !important;
+  }
+  .shad-table {
+    @apply rounded-lg overflow-hidden !important;
+  }
+  .shad-table-row-header {
+    @apply border-b border-gray-200 text-gray-900 hover:bg-gray-50 !important;
+  }
+  .shad-table-row {
+    @apply border-b border-gray-200 text-gray-900 !important;
+  }
+  .shad-otp {
+    @apply w-full flex justify-between !important;
+  }
+  .shad-otp-slot {
+    @apply text-36-bold justify-center flex border border-gray-300 bg-white text-gray-900 rounded-lg size-16 gap-4 !important;
+  }
+  .shad-alert-dialog {
+    @apply space-y-5 bg-white border-gray-300 outline-none !important;
+  }
+  .shad-sheet-content button {
+    @apply top-2 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+  }
+}
+
+/* ===== REACT PHONE NUMBER INPUT OVERRIDES */
+.input-phone {
+  @apply mt-2 h-11 rounded-md px-3 text-sm border bg-white placeholder:text-gray-500 border-gray-300 text-gray-900 focus:ring-2 focus:ring-sa-green focus:border-sa-green !important;
+}
+
+/* ===== REACT DATE PICKER OVERRIDES */
+.date-picker {
+  @apply overflow-hidden border-gray-300 w-full placeholder:text-gray-500 h-11 text-14-medium rounded-md px-3 outline-none bg-white text-gray-900 !important;
+}
+
+.react-datepicker-wrapper.date-picker {
+  display: flex;
+  align-items: center;
+}
+
+.react-datepicker,
+.react-datepicker__time,
+.react-datepicker__header,
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker-time__header {
+  background-color: #ffffff !important;
+  border-color: #d1d5db !important;
+  color: #374151 !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker-time__header {
+  color: #111827 !important;
+}
+
+.react-datepicker__triangle {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.react-datepicker__time-list-item:hover {
+  background-color: #f3f4f6 !important;
+}
+
+.react-datepicker__input-container input {
+  background-color: #ffffff !important;
+  width: 100%;
+  outline: none;
+  color: #374151 !important;
+}
+
+.react-datepicker__day--selected {
+  background-color: #00A651 !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: #00A651 !important;
+}
+
+.react-datepicker__time-container {
+  border-left: 1px solid #d1d5db !important;
+}
+
+.react-datepicker__time-list-item {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.PhoneInputInput {
+  outline: none;
+  margin-left: 4px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.PhoneInputInput::placeholder {
+  color: #6b7280;
+}
+
+/* QueueCare Radio Button Fix */
+.radio-group {
+  background-color: white !important;
+  border-color: #d1d5db !important;
+  color: #374151 !important;
+}
+
+.radio-group:hover {
+  background-color: #f9fafb !important;
+  border-color: #00A651 !important;
+}
+
+.radio-group label {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+
+input[type="radio"] {
+  accent-color: #00A651 !important;
+}
